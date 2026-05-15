@@ -1,0 +1,6 @@
+meshflow-app-expenses v0.1.0
+
+This package marker is used by MeshFlow Core during the V0.1 install/update/reinstall validation flow.
+The Core verifies the checksum declared by registry.json before activating the remote-service app version.
+
+Runtime code is served by the remote backend at the manifest service.baseUrl.

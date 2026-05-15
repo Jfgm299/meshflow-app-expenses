@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "apps": [
+    {
+      "id": "expenses",
+      "latestVersion": "0.1.0",
+      "manifestUrl": "https://raw.githubusercontent.com/Jfgm299/meshflow-app-expenses/main/meshflow/manifest.json",
+      "packageUrl": "https://raw.githubusercontent.com/Jfgm299/meshflow-app-expenses/main/meshflow/package-v0.1.0.txt",
+      "checksum": "sha256:7cd852fdc10c806a6a35a0e28c6fcdf1fa28cefeba6f533c333778bca1cfbbab"
+    }
+  ]
+}
