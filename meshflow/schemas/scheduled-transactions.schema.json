@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finance scheduled transaction record",
+  "description": "Core Storage schema placeholder for Finance scheduled transaction records. Field-level validation is introduced with the Scheduled Transactions API batch.",
+  "type": "object",
+  "additionalProperties": true
+}

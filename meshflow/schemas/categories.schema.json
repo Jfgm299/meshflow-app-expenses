@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finance category record",
+  "description": "Core Storage schema placeholder for Finance category records. Field-level validation is introduced with the Categories API batch.",
+  "type": "object",
+  "additionalProperties": true
+}

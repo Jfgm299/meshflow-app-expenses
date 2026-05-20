@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finance transaction record",
+  "description": "Core Storage schema placeholder for Finance transaction records. Field-level validation is introduced with the Transactions API batch.",
+  "type": "object",
+  "additionalProperties": true
+}
