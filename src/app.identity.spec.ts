@@ -63,7 +63,7 @@ describe("app identity metadata", () => {
   it("uses the Finance identity for runtime smoke-test payloads and OpenAPI metadata", () => {
     expect(APP_ID).toBe("finance");
     expect(APP_NAME).toBe("MeshFlow Finance");
-    expect(APP_VERSION).toBe("0.1.0");
+    expect(APP_VERSION).toBe("1.0.0");
     expect(OPENAPI_TITLE).toBe("MeshFlow Finance App");
     expect(OPENAPI_DESCRIPTION).toContain("Finance remote app backend");
   });
@@ -90,9 +90,9 @@ describe("app identity metadata", () => {
     expect(registryApp.latestVersion).toBe(APP_VERSION);
   });
 
-  it("declares the checksum of the v0.1 package marker used by lifecycle validation", () => {
+  it("declares the checksum of the v1.0.0 package marker used by lifecycle validation", () => {
     const registry = readJson<MeshFlowRegistry>("meshflow/registry.json");
-    const packageMarker = readFileSync(join(process.cwd(), "meshflow/package-v0.1.0.txt"));
+    const packageMarker = readFileSync(join(process.cwd(), "meshflow/package-v1.0.0.txt"));
     const checksum = createHash("sha256").update(packageMarker).digest("hex");
 
     expect(registry.apps[0].checksum).toBe(`sha256:${checksum}`);

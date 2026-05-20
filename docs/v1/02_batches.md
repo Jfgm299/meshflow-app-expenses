@@ -1,6 +1,6 @@
 # Finance V1 — Plan de Batches
 
-Ningún batch está completado todavía. Este plan es únicamente el mapa de implementación; no ejecutar estos cambios como parte de la planificación.
+Todos los batches F00-F10 están implementados y mergeados en develop. La app está versionada como v1.0.0.
 
 ---
 
