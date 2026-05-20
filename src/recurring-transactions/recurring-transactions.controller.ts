@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Req, UseGuards } from "@nestjs/common";
 import { ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { TrustedUserGuard } from "../core/trusted-user.guard";
+import { ApiTrustedCoreUser } from "../core/openapi-security";
 import type { TrustedUserRequest, UserContext } from "../core/user-context";
 import { RecurringTransactionsService } from "./recurring-transactions.service";
 import type { CreateRecurringTransactionDto, RecurringTransactionRecord, UpdateRecurringTransactionDto } from "./recurring-transactions.types";
@@ -14,6 +15,7 @@ const getTrustedUserContext = (request: TrustedUserRequest): UserContext => {
 };
 
 @ApiTags("recurring-transactions")
+@ApiTrustedCoreUser()
 @UseGuards(TrustedUserGuard)
 @Controller("recurring-transactions")
 export class RecurringTransactionsController {

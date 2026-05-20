@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Req, UseGuards } from "@nestjs/common";
 import { ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { TrustedUserGuard } from "../core/trusted-user.guard";
+import { ApiTrustedCoreUser } from "../core/openapi-security";
 import type { TrustedUserRequest, UserContext } from "../core/user-context";
 import { ScheduledTransactionsService } from "./scheduled-transactions.service";
 import type { CreateScheduledTransactionDto, ScheduledTransactionRecord, UpdateScheduledTransactionDto } from "./scheduled-transactions.types";
@@ -14,6 +15,7 @@ const getTrustedUserContext = (request: TrustedUserRequest): UserContext => {
 };
 
 @ApiTags("scheduled-transactions")
+@ApiTrustedCoreUser()
 @UseGuards(TrustedUserGuard)
 @Controller("scheduled-transactions")
 export class ScheduledTransactionsController {
