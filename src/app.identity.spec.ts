@@ -17,7 +17,27 @@ interface MeshFlowManifest {
     healthPath: string;
     openapiPath: string;
   };
-  collections: unknown[];
+  collections: MeshFlowManifestCollection[];
+  jobs?: MeshFlowManifestJob[];
+}
+
+interface MeshFlowManifestCollection {
+  name: string;
+  schema: string;
+}
+
+interface MeshFlowManifestJob {
+  id: string;
+  name: string;
+  path: string;
+  method: "POST";
+  schedule: {
+    type: "daily";
+    time: string;
+    timezone: string;
+  };
+  enabled: boolean;
+  timeoutMs?: number;
 }
 
 interface MeshFlowRegistry {
@@ -30,6 +50,14 @@ interface MeshFlowRegistry {
 
 const readJson = <T>(relativePath: string): T =>
   JSON.parse(readFileSync(join(process.cwd(), relativePath), "utf8")) as T;
+
+const expectedFinanceCollections = [
+  "accounts",
+  "categories",
+  "transactions",
+  "recurring-transactions",
+  "scheduled-transactions"
+] as const;
 
 describe("app identity metadata", () => {
   it("uses the Finance identity for runtime smoke-test payloads and OpenAPI metadata", () => {
@@ -55,7 +83,7 @@ describe("app identity metadata", () => {
     expect(manifest.version).toBe(APP_VERSION);
     expect(manifest.service.healthPath).toBe("/health");
     expect(manifest.service.openapiPath).toBe("/openapi.json");
-    expect(manifest.collections).toEqual([]);
+    expect(manifest.collections.map((collection) => collection.name)).toEqual([...expectedFinanceCollections]);
 
     expect(registryApp).toBeDefined();
     expect(registryApp.id).toBe(APP_ID);
@@ -68,5 +96,41 @@ describe("app identity metadata", () => {
     const checksum = createHash("sha256").update(packageMarker).digest("hex");
 
     expect(registry.apps[0].checksum).toBe(`sha256:${checksum}`);
+  });
+
+  it("declares Finance Core Storage collections with loadable schema files", () => {
+    const manifest = readJson<MeshFlowManifest>("meshflow/manifest.json");
+
+    expect(manifest.collections).toEqual(
+      expectedFinanceCollections.map((collectionName) => ({
+        name: collectionName,
+        schema: `./schemas/${collectionName}.schema.json`
+      }))
+    );
+
+    for (const collection of manifest.collections) {
+      const schema = readJson<Record<string, unknown>>(`meshflow/${collection.schema.replace(/^\.\//, "")}`);
+
+      expect(schema.type).toBe("object");
+    }
+  });
+
+  it("declares the process-due Core App Jobs Scheduler entry", () => {
+    const manifest = readJson<MeshFlowManifest>("meshflow/manifest.json");
+
+    expect(manifest.jobs).toEqual([
+      {
+        id: "process-due",
+        name: "Process due transactions",
+        path: "/internal/jobs/process-due",
+        method: "POST",
+        schedule: {
+          type: "daily",
+          time: "00:00",
+          timezone: "UTC"
+        },
+        enabled: true
+      }
+    ]);
   });
 });

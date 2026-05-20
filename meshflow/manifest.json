@@ -17,7 +17,42 @@
   "settings": {
     "schema": "./settings.schema.json"
   },
-  "collections": [],
+  "collections": [
+    {
+      "name": "accounts",
+      "schema": "./schemas/accounts.schema.json"
+    },
+    {
+      "name": "categories",
+      "schema": "./schemas/categories.schema.json"
+    },
+    {
+      "name": "transactions",
+      "schema": "./schemas/transactions.schema.json"
+    },
+    {
+      "name": "recurring-transactions",
+      "schema": "./schemas/recurring-transactions.schema.json"
+    },
+    {
+      "name": "scheduled-transactions",
+      "schema": "./schemas/scheduled-transactions.schema.json"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "process-due",
+      "name": "Process due transactions",
+      "path": "/internal/jobs/process-due",
+      "method": "POST",
+      "schedule": {
+        "type": "daily",
+        "time": "00:00",
+        "timezone": "UTC"
+      },
+      "enabled": true
+    }
+  ],
   "automations": {
     "manifest": "./automations.manifest.json"
   }

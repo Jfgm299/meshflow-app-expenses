@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finance account record",
+  "description": "Core Storage schema placeholder for Finance account records. Field-level validation is introduced with the Accounts API batch.",
+  "type": "object",
+  "additionalProperties": true
+}
