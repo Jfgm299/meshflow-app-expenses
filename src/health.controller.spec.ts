@@ -6,7 +6,7 @@ describe("HealthController", () => {
 
     expect(controller.getHealth()).toEqual({
       status: "ok",
-      app: "expenses",
+      app: "finance",
       version: "0.1.0"
     });
   });
