@@ -25,11 +25,9 @@ Create a Pull Request from the current branch into `develop`.
 1. Verify branch name matches the required pattern.
 2. Detect whether the changes are documentation-only.
 3. If changes are documentation-only, skip tests and explain why in the PR body.
-4. If changes are not documentation-only, run the MeshFlow backend checks:
-   - `npm run lint`
+4. If changes are not documentation-only, run the MeshFlow Finance app checks:
    - `npm run typecheck`
-   - `npm run test:unit`
-   - `npm run test:integration`
+   - `npm test`
 5. If any check fails, STOP and warn the user before proceeding.
 6. Push branch to remote: `git push -u origin HEAD`.
 7. Draft the PR title and body using the template below. **Show the full draft to the user and STOP — wait for explicit confirmation before creating the PR.**
@@ -82,10 +80,8 @@ Closes #
 ## 🧪 Test Plan
 
 - [ ] Tests skipped because changes are documentation-only
-- [ ] Lint passes locally: `npm run lint`
 - [ ] Typecheck passes locally: `npm run typecheck`
-- [ ] Unit tests pass locally: `npm run test:unit`
-- [ ] Integration tests pass locally: `npm run test:integration`
+- [ ] Tests pass locally: `npm test`
 - [ ] Manually tested the affected functionality
 
 ---
