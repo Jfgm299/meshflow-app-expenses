@@ -3,10 +3,11 @@ import { AccountsModule } from "./accounts/accounts.module";
 import { CategoriesModule } from "./categories/categories.module";
 import { CoreModule } from "./core/core.module";
 import { HealthController } from "./health.controller";
+import { RecurringTransactionsModule } from "./recurring-transactions/recurring-transactions.module";
 import { TransactionsModule } from "./transactions/transactions.module";
 
 @Module({
-  imports: [CoreModule, AccountsModule, CategoriesModule, TransactionsModule],
+  imports: [CoreModule, AccountsModule, CategoriesModule, TransactionsModule, RecurringTransactionsModule],
   controllers: [HealthController]
 })
 export class AppModule {}
