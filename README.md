@@ -1,8 +1,8 @@
-# MeshFlow Expenses App
+# MeshFlow Finance App
 
-App `remote-service` mínima v0.1 usada para validar flujos de discovery, instalación, actualización, reinstalación y desinstalación de apps en MeshFlow.
+App `remote-service` mínima de **MeshFlow Finance** usada para validar flujos de discovery, instalación, actualización, reinstalación y desinstalación de apps en MeshFlow.
 
-La dirección de producto cambió hacia **MeshFlow Finance**. La app actual `0.1.x` sigue siendo un smoke test de lifecycle; la planificación de Finance V1 vive en [`docs/v1`](docs/v1/):
+La app nació como **MeshFlow Expenses** en v0.1 para smoke tests de lifecycle. Ese historial se preserva, pero la identidad pública actual es **MeshFlow Finance** (`finance`). La app actual `0.1.x` sigue siendo un smoke test de lifecycle; la planificación de Finance V1 vive en [`docs/v1`](docs/v1/):
 
 - [`00_initial_prd.md`](docs/v1/00_initial_prd.md)
 - [`01_technical_design.md`](docs/v1/01_technical_design.md)
@@ -36,7 +36,8 @@ GET /openapi.json
 The manifest declares this app as a `remote-service` with:
 
 ```txt
-id: expenses
+id: finance
+name: MeshFlow Finance
 version: 0.1.0
 baseUrl: http://localhost:4010
 healthPath: /health

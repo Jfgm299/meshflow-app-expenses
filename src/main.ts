@@ -2,13 +2,14 @@ import "reflect-metadata";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { AppModule } from "./app.module";
+import { APP_VERSION, OPENAPI_DESCRIPTION, OPENAPI_TITLE } from "./app.identity";
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
-    .setTitle("MeshFlow Expenses App")
-    .setDescription("Minimal Expenses remote app backend for MeshFlow installation lifecycle validation.")
-    .setVersion("0.1.0")
+    .setTitle(OPENAPI_TITLE)
+    .setDescription(OPENAPI_DESCRIPTION)
+    .setVersion(APP_VERSION)
     .build();
   const document = SwaggerModule.createDocument(app, config);
 
