@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import { AccountsModule } from "./accounts/accounts.module";
+import { AnalyticsModule } from "./analytics/analytics.module";
 import { CategoriesModule } from "./categories/categories.module";
 import { CoreModule } from "./core/core.module";
 import { HealthController } from "./health.controller";
@@ -9,7 +10,7 @@ import { ScheduledTransactionsModule } from "./scheduled-transactions/scheduled-
 import { TransactionsModule } from "./transactions/transactions.module";
 
 @Module({
-  imports: [CoreModule, AccountsModule, CategoriesModule, TransactionsModule, RecurringTransactionsModule, ScheduledTransactionsModule, InternalJobsModule],
+  imports: [CoreModule, AccountsModule, CategoriesModule, TransactionsModule, RecurringTransactionsModule, ScheduledTransactionsModule, InternalJobsModule, AnalyticsModule],
   controllers: [HealthController]
 })
 export class AppModule {}
