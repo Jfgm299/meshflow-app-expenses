@@ -1,6 +1,6 @@
 {
   "name": "meshflow-app-finance",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "MeshFlow Finance remote app backend",
   "license": "UNLICENSED",
   "private": true,
