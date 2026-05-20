@@ -1,6 +1,12 @@
 # MeshFlow Expenses App
 
-Minimal v0.1 remote-service app used to validate MeshFlow app discovery, installation, update, reinstall, and uninstall flows.
+App `remote-service` mínima v0.1 usada para validar flujos de discovery, instalación, actualización, reinstalación y desinstalación de apps en MeshFlow.
+
+La dirección de producto cambió hacia **MeshFlow Finance**. La app actual `0.1.x` sigue siendo un smoke test de lifecycle; la planificación de Finance V1 vive en [`docs/v1`](docs/v1/):
+
+- [`00_initial_prd.md`](docs/v1/00_initial_prd.md)
+- [`01_technical_design.md`](docs/v1/01_technical_design.md)
+- [`02_batches.md`](docs/v1/02_batches.md)
 
 ## What this version contains
 
