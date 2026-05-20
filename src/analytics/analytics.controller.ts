@@ -1,6 +1,7 @@
 import { Controller, Get, Query, Req, UseGuards } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { TrustedUserGuard } from "../core/trusted-user.guard";
+import { ApiTrustedCoreUser } from "../core/openapi-security";
 import type { TrustedUserRequest, UserContext } from "../core/user-context";
 import { AnalyticsService } from "./analytics.service";
 import type {
@@ -24,6 +25,7 @@ const getTrustedUserContext = (request: TrustedUserRequest): UserContext => {
 };
 
 @ApiTags("analytics")
+@ApiTrustedCoreUser()
 @UseGuards(TrustedUserGuard)
 @Controller("analytics")
 export class AnalyticsController {

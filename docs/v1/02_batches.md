@@ -113,3 +113,11 @@ Ningún batch está completado todavía. Este plan es únicamente el mapa de imp
 | Archivos/Módulos esperados | Decorators/schema OpenAPI, actualizaciones de README/docs, suites de regresión, documentación de configuración. |
 | Tests requeridos | OpenAPI incluye todos los endpoints V1, riesgo de header faltante/falsificado documentado, todas las rutas de recursos refuerzan ownership, regresión de política de soft delete. |
 | Comandos de verificación | `npm test`; comando opcional lint/typecheck si existe; no build salvo pedido explícito. |
+
+### Notas finales F10
+
+- `GET /health`, `GET /openapi.json` y `/docs` son públicos.
+- Todas las rutas de recursos, jobs internos y analytics requieren `x-meshflow-user-id` confiado desde MeshFlow Core Gateway.
+- Finance V1 no autentica usuarios finales por sí mismo; confía en Core Gateway. No exponer la app directamente a clientes públicos porque podrían falsificar `x-meshflow-user-id`.
+- El contrato OpenAPI documenta el esquema `trustedCoreUser` y marca los endpoints protegidos con el header requerido.
+- La política de soft delete V1 es excluir registros eliminados en lecturas/listados activos; analytics aplica además filtrado defensivo por `userId` y `deletedAt` sobre datos cargados desde storage scoping.

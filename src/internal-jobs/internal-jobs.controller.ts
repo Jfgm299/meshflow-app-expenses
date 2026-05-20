@@ -1,6 +1,7 @@
 import { Controller, Post, Req, UseGuards } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { TrustedUserGuard } from "../core/trusted-user.guard";
+import { ApiTrustedCoreUser } from "../core/openapi-security";
 import type { TrustedUserRequest, UserContext } from "../core/user-context";
 import { DueProcessingService } from "./due-processing.service";
 import type { ProcessDueResult } from "./due-processing.types";
@@ -14,6 +15,7 @@ const getTrustedUserContext = (request: TrustedUserRequest): UserContext => {
 };
 
 @ApiTags("internal-jobs")
+@ApiTrustedCoreUser()
 @UseGuards(TrustedUserGuard)
 @Controller("internal/jobs")
 export class InternalJobsController {
