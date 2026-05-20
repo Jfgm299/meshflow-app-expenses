@@ -84,7 +84,9 @@ export interface CreateTransactionRecordInput {
   date: string;
   description?: string;
   notes?: string;
-  source: typeof TRANSACTION_SOURCES.MANUAL;
+  source: TransactionSource;
+  sourceId?: string;
+  sourceOccurrenceDate?: string;
   createdAt: string;
   updatedAt: string;
 }
