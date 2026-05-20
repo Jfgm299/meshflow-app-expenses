@@ -18,4 +18,17 @@ describe("TrustedUserGuard", () => {
     expect(new TrustedUserGuard().canActivate(context)).toBe(true);
     expect(request.userContext).toEqual({ userId: "user-123" });
   });
+
+  it("rejects requests without the trusted user header", () => {
+    const request: TrustedUserRequest = {
+      headers: {}
+    };
+    const context = {
+      switchToHttp: () => ({
+        getRequest: () => request
+      })
+    } as unknown as ExecutionContext;
+
+    expect(() => new TrustedUserGuard().canActivate(context)).toThrow("Missing trusted Core Gateway header");
+  });
 });
