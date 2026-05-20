@@ -1,7 +1,7 @@
 {
-  "name": "meshflow-app-expenses",
+  "name": "meshflow-app-finance",
   "version": "0.1.0",
-  "description": "MeshFlow Expenses remote app backend",
+  "description": "MeshFlow Finance remote app backend",
   "license": "UNLICENSED",
   "private": true,
   "engines": {

@@ -1,10 +1,11 @@
 import { Controller, Get } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiTags } from "@nestjs/swagger";
+import { APP_ID, APP_VERSION } from "./app.identity";
 
 export interface HealthResponse {
   status: "ok";
-  app: "expenses";
-  version: "0.1.0";
+  app: typeof APP_ID;
+  version: typeof APP_VERSION;
 }
 
 @ApiTags("health")
@@ -12,15 +13,15 @@ export interface HealthResponse {
 export class HealthController {
   @Get()
   @ApiOperation({
-    summary: "Check Expenses app health",
-    description: "Returns a minimal liveness response so MeshFlow Core can validate the remote Expenses app during install, reinstall, and update flows."
+    summary: "Check Finance app health",
+    description: "Returns a minimal liveness response so MeshFlow Core can validate the remote Finance app during install, reinstall, and update flows."
   })
-  @ApiOkResponse({ description: "Expenses app is reachable." })
+  @ApiOkResponse({ description: "Finance app is reachable." })
   getHealth(): HealthResponse {
     return {
       status: "ok",
-      app: "expenses",
-      version: "0.1.0"
+      app: APP_ID,
+      version: APP_VERSION
     };
   }
 }
