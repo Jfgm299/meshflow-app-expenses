@@ -1,0 +1,7 @@
+meshflow-app-finance v1.0.0
+
+MeshFlow Finance V1 — Core personal finance management.
+Accounts, categories, unified transactions, recurring/scheduled definitions, due processing, and analytics.
+
+This package marker is used by MeshFlow Core during the V1 install/update/reinstall validation flow.
+Runtime code is served by the remote backend at the manifest service.baseUrl.

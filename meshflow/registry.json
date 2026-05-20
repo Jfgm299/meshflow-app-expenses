@@ -3,10 +3,10 @@
   "apps": [
     {
       "id": "finance",
-      "latestVersion": "0.1.0",
+      "latestVersion": "1.0.0",
       "manifestUrl": "https://raw.githubusercontent.com/Jfgm299/meshflow-app-expenses/main/meshflow/manifest.json",
-      "packageUrl": "https://raw.githubusercontent.com/Jfgm299/meshflow-app-expenses/main/meshflow/package-v0.1.0.txt",
-      "checksum": "sha256:076982cfb2833cba2e6c1ff24871716505c18bec18189292b4dff4042b182944"
+      "packageUrl": "https://raw.githubusercontent.com/Jfgm299/meshflow-app-expenses/main/meshflow/package-v1.0.0.txt",
+      "checksum": "sha256:bfef3fadca9a3c9247eadf70647b93a9bdad8bff0a4f4c14e1191fd362fe41f2"
     }
   ]
 }
